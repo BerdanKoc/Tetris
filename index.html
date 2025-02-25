@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris VS IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Grille du joueur -->
+        <div class="player-section">
+            <h2>Joueur</h2>
+            <div class="grid player-grid"></div>
+            <div class="score">Score: <span id="player-score">0</span></div>
+        </div>
+
+        <!-- Section centrale avec les informations -->
+        <div class="info-section">
+            <h1>Player VS IA</h1>
+            <div class="control-buttons">
+                <button id="toggle-music" class="control-button">🔊 Musique</button>
+                <button id="pause-button" class="control-button">⏸️ Pause</button>
+            </div>
+            <div class="next-piece">
+                <h3>Prochaine pièce</h3>
+                <div class="next-piece-display"></div>
+            </div>
+            <div class="controls">
+                <h3>Contrôles</h3>
+                <p>← → : Déplacer</p>
+                <p>↑ : Rotation</p>
+                <p>↓ : Descendre</p>
+            </div>
+            <div class="bonus-container">
+                <h3>Bonus Spéciaux</h3>
+                <button class="bonus-button" id="clear-column" disabled>🧹 Nettoyer Colonne (500 pts)</button>
+                <button class="bonus-button" id="slow-time" disabled>⏰ Ralentir Temps (300 pts)</button>
+                <button class="bonus-button" id="easy-piece" disabled>🎲 Pièce Facile (200 pts)</button>
+            </div>
+            <div class="high-scores">
+                <h3>Meilleurs Scores</h3>
+                <table id="scores-table">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Joueur</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scores-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Grille de l'IA -->
+        <div class="player-section">
+            <h2>IA</h2>
+            <div class="grid ai-grid"></div>
+            <div class="score">Score: <span id="ai-score">0</span></div>
+        </div>
+    </div>
+    <audio id="background-music" src="sounds/tetris.mp3" loop></audio>
+    <script src="script.js"></script>
+
+    <!-- Ajoutons l'écran de démarrage -->
+    <div id="start-screen" class="overlay">
+        <div class="menu-content">
+            <h1>Tetris VS IA</h1>
+            <button id="start-game" class="menu-button">Commencer la partie</button>
+            <div class="instructions">
+                <h2>Instructions</h2>
+                <p>← → : Déplacer</p>
+                <p>↑ : Rotation</p>
+                <p>↓ : Descendre</p>
+                <p>Espace : Pause</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajoutons le menu pause -->
+    <div id="pause-menu" class="overlay" style="display: none;">
+        <div class="menu-content">
+            <h2>Pause</h2>
+            <button id="resume-game" class="menu-button">Reprendre</button>
+            <button id="restart-game" class="menu-button">Recommencer</button>
+        </div>
+    </div>
+</body>
+</html> 
